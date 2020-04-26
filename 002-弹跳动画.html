@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .ball {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background-color: #fb3;
+            animation: bounce 3s cubic-bezier(.1, .25, 1, .25);
+        }
+
+        @keyframes bounce {
+
+            60%,
+            80%,
+            to {
+                transform: translateY(400px);
+                animation-timing-function: ease-out;
+            }
+
+            70% {
+                transform: translateY(300px);
+            }
+
+            90% {
+                transform: translateY(360px);
+            }
+        }
+
+        @keyframes blink-smooth {
+            to {
+                color: transparent
+            }
+        }
+        .highlight{
+            height: 200px;
+            width: 200px;
+            background: #58a;
+            animation: 1s blink-smooth 3;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div class="ball"></div> -->
+    <div class="highlight">
+        好好学习
+    </div>
+</body>
+
+</html>
