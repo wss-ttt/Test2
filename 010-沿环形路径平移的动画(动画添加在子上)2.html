@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .path {
+            width: 400px;
+            height: 400px;
+            background: #fb3;
+            /* border-radius: 50%; */
+            position: relative;
+            margin: 100px auto;
+        }
+
+        .avatar {
+            width: 80px;
+            height: 80px;
+            /* border-radius: 50%; */
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%,0);
+            transform-origin: 40px 200px;
+            /* transform-origin: 0 0 ; */
+            animation: spin 3s  linear;
+        }
+
+        @keyframes spin {
+            from{
+                /*这个地方一定要加上translate 因为前面有该属性 避免该属性值被重置了*/
+                transform: translate(-50%,0) rotate(0deg);
+            }
+            to{
+                transform: translate(-50%,0) rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="path">
+        <img src="images/3.png" class="avatar" />
+    </div>
+</body>
+
+</html>
