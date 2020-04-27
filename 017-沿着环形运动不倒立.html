@@ -21,7 +21,7 @@
             position: absolute;
             left: calc(50% - 40px);
             transform-origin: 40px 200px;
-            animation: spin 3s infinite linear;
+            animation: spin 10s infinite linear;
         }
         img{
             border-radius: 50%;
@@ -32,7 +32,7 @@
             /*继承父元素的animation属性*/
             animation: inherit;
             /*只需要更改动画名称*/
-            animation-name: spin-reverse;
+            animation-direction: reverse;
         }
         @keyframes spin {
             to {
