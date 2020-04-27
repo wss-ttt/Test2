@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            /* border-radius: 50%; */
+            background-color: #fb3;
+            text-align: center;
+            /* transform-origin: 0 0; */
+            /* transform-origin: 200px 0; */
+            /* transform-origin: 200px 200px; */
+            transform-origin: 0 200px;
+            animation: rot 3s;
+            margin: 200px auto;
+        }
+
+        @keyframes rot {
+            to {
+                transform: rotate(1turn);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box">1</div>
+</body>
+
+</html>
