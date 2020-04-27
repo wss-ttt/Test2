@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .path {
+            width: 400px;
+            height: 400px;
+            background: #fb3;
+            border-radius: 50%;
+            position: relative;
+        }
+
+        .avatar {
+            width: 80px;
+            height: 80px;
+            position: absolute;
+            left: calc(50% - 40px);
+            transform-origin: 40px 200px;
+            animation: spin 3s infinite linear;
+        }
+        img{
+            border-radius: 50%;
+            width: 100%;
+            height: 100%;
+            /* animation: spin-reverse 3s; */
+            /*优化*/
+            /*继承父元素的animation属性*/
+            animation: inherit;
+            /*只需要更改动画名称*/
+            animation-name: spin-reverse;
+        }
+        @keyframes spin {
+            to {
+                transform: rotate(1turn);
+            }
+        }
+
+        @keyframes spin-reverse{
+            /*把动画反过来 也就是 360deg - 0deg*/
+            from {
+                transform: rotate(1turn);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="path">
+        <div class="avatar">
+            <img src="images/3.png" />
+        </div>
+    </div>
+</body>
+
+</html>
