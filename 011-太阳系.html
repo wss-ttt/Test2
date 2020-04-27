@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #000;
+            overflow: hidden;
+        }
+
+        .sun {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            /*left: calc(50% - 50px);   
+            top:calc(50% - 50px);*/
+            left: 50%;
+            top: 50%;
+            margin-top: -50px;
+            margin-left: -50px;
+            box-shadow: 0 0 30px 3px gold;
+            border-radius: 50%;
+            background-color: yellow;
+        }
+
+        .earth {
+            width: 300px;
+            height: 300px;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            border: 1px solid #ccc;
+            border-radius: 50%;
+            transform-origin: 0 0;
+            /* animation: rot 8s infinite linear; */
+        }
+
+        .earth::before {
+            content: "";
+            left: 0px;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 40px;
+            height: 40px;
+            position: absolute;
+            background-color: #1acd7e;
+            border-radius: 50%;
+        }
+
+        .moon {
+            width: 80px;
+            height: 80px;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            /*border:1px solid #ccc;*/
+            border-radius: 50%;
+            animation: rot 4s infinite linear;
+        }
+
+        .moon::before {
+            content: "";
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            background-color: #fff;
+            transform: translate(-50%, -50%);
+        }
+
+        .venus {
+            width: 500px;
+            height: 500px;
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            border: 1px solid #ccc;
+            animation: rot 10s infinite linear;
+        }
+
+        .venus::before {
+            content: "";
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            background-color: red;
+            transform: translate(-50%, -50%);
+        }
+
+        .mars {
+            width: 600px;
+            height: 600px;
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            border: 1px solid #ccc;
+            animation: rot 18s infinite linear;
+        }
+
+        .mars::before {
+            content: "";
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            position: absolute;
+            top: 50%;
+            left: 0;
+            background-color: green;
+            transform: translate(-50%, -50%);
+        }
+
+        @keyframes rot {
+            /* 0% {
+                transform: translate(-50%, -50%) rotate(0deg);
+            }
+
+            100% {
+                transform: translate(-50%, -50%) rotate(360deg);
+                
+            } */
+
+            0%{
+                transform: rotate(0);
+            }
+            100%{
+                transform: rotate(360deg);
+            }
+
+            /* to { transform: rotate(1turn); } */
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <div class="sun"></div> -->
+    <div class="earth">
+        <!-- <div class="moon"></div> -->
+    </div>
+    <!-- <div class="venus"></div> -->
+    <!-- <div class="mars"></div> -->
+</body>
+
+</html>
