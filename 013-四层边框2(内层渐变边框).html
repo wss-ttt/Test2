@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+        }
+        .main {
+            width: 400px;
+            height: 400px;
+            position: relative;
+            background-color: #333;
+        }
+
+        .content {
+            position: absolute;
+            /* border: 1px solid #ccc; */
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            /* border-radius: 50%; */
+        }
+
+        .b1 {
+            width: 280px;
+            height: 280px;
+            border: 10px solid tan;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            /* border-radius: 50%; */
+        }
+
+        .b2 {
+            width: 220px;
+            height: 220px;
+            border: 10px solid #1acd7e;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            /* border-radius: 50%; */
+        }
+
+        .b3 {
+            width: 160px;
+            height: 160px;
+            border: 10px solid #58a;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            /* animation: rot 4s 2s linear; */
+            /* border-radius: 50%; */
+        }
+
+        .b4 {
+            width: 100px;
+            height: 100px;
+            position: absolute;
+            background: linear-gradient(#fb3,#58a);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: rot 4s linear infinite;
+            border-radius: 50%;
+            padding: 10px;
+        }
+        .b4-inner{
+            width: calc(100% - 20px);
+            height: calc(100% - 20px);
+            background-color: #fff;
+            position: absolute;
+            border-radius: 50%;
+        }
+        @keyframes rot {
+            to {
+                transform: translate(-50%, -50%) rotate(1turn);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <div class="b1"></div>
+        <div class="b2"></div>
+        <div class="b3"></div>
+        <div class="b4">
+            <div class="b4-inner"></div>
+        </div>
+        <div class="content">好好学习</div>
+    </div>
+</body>
+
+</html>
