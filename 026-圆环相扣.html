@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .ring {
+            width: 100px;
+            height: 100px;
+            background: #fb3;
+            position: relative;
+            margin: 200px auto;
+        }
+
+        .ring div:nth-child(1) {
+            width: 200px;
+            height: 200px;
+            border: 3px solid #FF2419;
+            border-radius: 50%;
+            position: absolute;
+            top: 0px;
+            /* left: -100%; */
+            right: 0;
+        }
+        .ring div:nth-child(2){
+            width: 200px;
+            height: 200px;
+            border: 3px solid #FDB519;
+            border-radius: 50%;
+            position: absolute;
+            top: 0px;
+            left: 0;
+        }
+        .ring div:nth-child(3){
+            width: 200px;
+            height: 200px;
+            border: 3px solid #03C1FF;
+            border-radius: 50%;
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%,0);
+            bottom: 0px;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div class="ring">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</body>
+
+</html>

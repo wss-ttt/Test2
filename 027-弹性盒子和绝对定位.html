@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        .container{
+            width: 400px;
+            height: 400px;
+            background: #fb3;
+            display: flex;
+            position: relative;
+        }
+        .container .item{
+            flex:1;
+        }
+        .container .box{
+            width: 100%;
+            height: 10px;
+            background: #fb3;
+            position: absolute;
+            top: 100px;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box"></div>
+        <div class="item" style="background: red;"></div>
+        <div class="item" style="background: green;"></div>
+    </div>
+</body>
+</html>
