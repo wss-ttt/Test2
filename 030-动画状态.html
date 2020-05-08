@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container{
+            width: 400px;
+            height: 400px;
+            background: #ccc;
+            display: none;
+            position: relative;
+        }
+        .box {
+            width: 100px;
+            height: 100px;
+            background: #fb3;
+            animation: move 1s forwards;
+            left: 0;
+            position: absolute;
+        }
+
+        @keyframes move {
+            to {
+                left: 200px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="box"></div>
+    </div>
+    <button type="button">显示</button>
+    <script>
+        var btns = document.getElementsByTagName('button');
+        var container = document.querySelector('.container');
+        btns[0].onclick = function(){
+            container.style.display = 'block'; 
+        }
+
+    </script>
+</body>
+
+</html>
