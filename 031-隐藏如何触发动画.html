@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background: #fb3;
+            left: 400px;
+            position: absolute;
+        }
+
+        @keyframes move {
+            to {
+                left: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <button type="button">隐藏</button>
+    <div class="box"></div>
+    <script>
+        var btns = document.getElementsByTagName('button');
+        var box = document.querySelector('.box');
+        btns[0].onclick = function () {
+            box.style.animation = 'move 1s forwards'
+            // 这里需要延迟执行
+            setTimeout(() => {
+                box.style.display = 'none';
+
+            }, 1000)
+        }
+
+    </script>
+</body>
+
+</html>
