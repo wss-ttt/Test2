@@ -1,58 +1,104 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<title></title>
-		<style type="text/css">
-			*{
-				margin: 0;
-				padding: 0;
-			}
-			a{
-				text-decoration: none;
-				color:#000;
-			}
-			.box{
-				width: 240px;
-				height: 80px;
-				background-color: #ccc;
-				margin: 100px auto;
-				display: flex;
-				align-items: center;
-				position: relative;
-			}
-			.box a{
-				flex: 1;
-			}
-			.box a div{
-				text-align: center;
-			}
-			.box a div:nth-child(2){
-				margin-top: 5px;
-			}
-			/*竖线的制作*/
-			.box::after{
-				content: '';
-				position: absolute;
-				width:2px;
-				height: 60px;
-				top:50%;
-				left: 50%;
-				transform: translate(-50%,-50%);
-				background-color: #fff;
-			}
-		</style>
-	</head>
-	<body>
-		<div class="box">
-			<a href="#" class="l">
-				<div>关注了</div>
-				<div>327</div>
-			</a>
-			<a href="#" class="r">
-				<div>关注者</div>
-				<div>7</div>
-			</a>
-		</div>
-	</body>
+
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<style type="text/css">
+		* {
+			margin: 0;
+			padding: 0;
+		}
+
+		a {
+			text-decoration: none;
+			color: #000;
+		}
+
+		.box {
+			width: 240px;
+			height: 80px;
+			background-color: #ccc;
+			margin: 100px auto;
+			display: flex;
+			align-items: center;
+			position: relative;
+		}
+
+		.box a {
+			flex: 1;
+		}
+
+		.box a div {
+			text-align: center;
+		}
+
+		.box a div:nth-child(2) {
+			margin-top: 5px;
+		}
+
+		/*竖线的制作*/
+		.box::after {
+			content: '';
+			position: absolute;
+			width: 2px;
+			height: 60px;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			background-color: #fff;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="box">
+		<a href="#" class="l">
+			<div>关注了</div>
+			<div>327</div>
+		</a>
+		<a href="#" class="r">
+			<div>关注者</div>
+			<div>7</div>
+		</a>
+	</div>
+	<script>
+		let data = [{
+			id: 1,
+			parentId: 0,
+			name: '系统管理'
+		},{
+			id: 2,
+			parentId: 1,
+			name: '用户管理'
+		},{
+			id: 3,
+			parentId: 1,
+			name: '角色管理'
+		}]
+		let res = handleTree(data)
+		console.log(data)
+		console.log(res) // 这个地方就转换成树形结构
+		function handleTree(data, id, parentId, children, rootId) {
+			id = id || 'id'
+			parentId = parentId || 'parentId'
+			children = children || 'children'
+			rootId = rootId || 0
+			//对源数据深度克隆()
+			const cloneData = JSON.parse(JSON.stringify(data))
+			//循环所有项
+			const treeData = cloneData.filter(father => {
+				let branchArr = cloneData.filter(child => {
+					//返回每一项的子级数组
+					return father[id] === child[parentId]
+				});
+				branchArr.length > 0 ? father.children = branchArr : '';
+				//返回第一层
+				return father[parentId] === rootId;
+			});
+			return treeData != '' ? treeData : data;
+		}
+	</script>
+</body>
+
 </html>
