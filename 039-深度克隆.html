@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+  </style>
+</head>
+
+<body>
+  <script>
+    let arr = ['aa', 'bb', 'cc'];
+    let res = deepClone(arr);
+    console.log(arr === res); // false
+    let o = {
+      name: '乔峰'
+    };
+    let res2 = deepClone(o);
+    console.log(o === res2); // false
+
+    let arr2 = [
+      ['aa', 'bb'],
+      ['乔峰', '张三']
+    ]
+    let res3 = deepClone(arr2);
+    console.log(arr2 === res3); // false
+    function deepClone(source) {
+
+      if (!source && typeof source !== 'object') {
+        throw new Error('error arguments', 'deepClone')
+      }
+
+      // 判断是数组还是对象
+      const targetObj = source.constructor === Array ? [] : {}
+
+      // 遍历keys
+      Object.keys(source).forEach(keys => {
+        if (source[keys] && typeof source[keys] === 'object') {
+          // 递归调用
+          targetObj[keys] = deepClone(source[keys])
+        } else {
+          targetObj[keys] = source[keys]
+        }
+      })
+      return targetObj
+    }
+  </script>
+</body>
+
+</html>

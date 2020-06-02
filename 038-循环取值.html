@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    ul,
+    li {
+      list-style-type: none;
+    }
+
+    li {
+      width: 50px;
+      height: 50px;
+      float: left;
+      margin: 5px;
+    }
+  </style>
+</head>
+
+<body>
+  <ul>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+    <li></li>
+  </ul>
+  <script>
+    let colors = ['#1acd7e', '#fb3', '#58a'];
+    let lis = document.getElementsByTagName('li')
+    for (let i = 0; i < lis.length; i++) {
+      lis[i].style.backgroundColor = colors[i % 3];
+    }
+  </script>
+</body>
+
+</html>
