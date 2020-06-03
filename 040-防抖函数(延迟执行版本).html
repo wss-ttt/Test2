@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box{
+      width: 200px;
+      height: 200px;
+      background: #ccc;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box"></div>
+  <script>
+    function debounce(fn, wait) {
+      let timer = null;
+      return function () {
+        let args = arguments; // arguments里面有事件对象e
+        
+        if (timer) {
+          clearTimeout(timer);
+        }
+        // 延迟wait时间,才执行fn函数
+        // timer = setTimeout(fn, wait);
+
+        // 优化:改变this的指向
+        // 这个地方使用的是箭头函数
+        timer = setTimeout(() => {
+          // 使用apply改变函数中this的指向
+          fn.apply(this, args)
+        }, wait)
+      }
+    }
+    
+    let box = document.querySelector('.box')
+    box.onmousemove = debounce(handle, 1000)
+    
+
+
+    /* box.onmousemove = function() {
+      // 这里的this指向的是box
+      console.log(this)
+    } */
+
+    function handle() {
+      console.log(this)
+      console.log(Math.random());
+    }
+
+    // window.addEventListener("resize", debounce(handle, 1000));
+  </script>
+</body>
+
+</html>

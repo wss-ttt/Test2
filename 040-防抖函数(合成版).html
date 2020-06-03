@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      width: 200px;
+      height: 200px;
+      background: #ccc;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box"></div>
+  <script>
+    /**
+     * @desc 函数防抖
+     * @param fn 目标函数
+     * @param wait 延迟执行毫秒数
+     * @param immediate true - 立即执行， false - 延迟执行
+     */
+    function debounce(fn, wait, immediate) {
+      let timer = null;
+      return function () {
+        let context = this,
+          args = arguments;
+
+        if (timer) clearTimeout(timer);
+
+        if (immediate) {
+          // 立即执行版本
+          let callNow = !timer;
+          timer = setTimeout(() => {
+            timer = null;
+          }, wait);
+          if (callNow) fn.apply(context, args);
+        } else {
+          // 延迟执行版本
+          timer = setTimeout(() => {
+            fn.apply(context, args);
+          }, wait)
+        }
+      }
+    }
+
+    let box = document.querySelector('.box')
+    box.onmousemove = debounce(handle, 1000, true)
+
+    function handle() {
+      console.log(this)
+      console.log(Math.random());
+    }
+  </script>
+</body>
+
+</html>
