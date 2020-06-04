@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .box {
+      width: 200px;
+      height: 200px;
+      background: #ccc;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box"></div>
+  <script>
+    // 定时器版
+    function throttle(func, wait) {
+      let time, context
+      // 闭包
+      return function () {
+        context = this
+        if (!time) {
+          time = setTimeout(function () {
+            func.apply(context, arguments)
+            time = null
+          }, wait)
+        }
+      }
+    }
+
+    let fn = () => {
+      console.log(Math.random());
+    }
+    // 每10ms触发一次
+    // 但是1s才执行一次目标函数
+    // setInterval(throttle(fn, 1000), 10)
+  </script>
+</body>
+
+</html>
