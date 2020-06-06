@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // 把x、y两个参数变成先用一个函数接收x参数,然后返回一个函数去处理y参数
+    // 只传递给函数一部分参数来调用它，让它返回一个函数去处理剩下的参数
+    {
+      let a = 10;
+    }
+    function add2(y) {
+      return function (x) {
+        return x + y;
+      };
+    }
+    console.log(add2(2));
+  </script>
+</body>
+
+</html>

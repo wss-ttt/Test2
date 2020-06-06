@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+    /* function fn() {
+      let a = 10
+      return function() {
+        return a;
+      }
+    }
+
+    let f = fn();
+    let a = f();
+    let b = f();
+    console.log(a); // 10
+    console.log(b); // 10
+    a = 20;
+    console.log(a); // 20
+    console.log(b); // 10
+    console.log(a === b); // false */
+
+
+    function fn() {
+      let person = {
+        name: '乔峰'
+      }
+      return function() {
+        return person;
+      }
+    }
+    let f = fn();
+    let a = f();
+    let b = f();
+    console.log(a); // {name: '乔峰'}
+    console.log(b); // 
+    a.name = 'aa';
+    console.log(a);
+    console.log(b);
+    console.log(a === b);
+  </script>
+</body>
+
+</html>

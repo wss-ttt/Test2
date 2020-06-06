@@ -8,34 +8,25 @@
 
 <body onkeydown="enterKey();">
 	<button>确定</button>
+	<span>12345678</span>
 </body>
-<script src="js/jquery.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
-	$('button').click(function () {
-		console.log('好好学习 天天向上');
+	console.log('script start');
+	setTimeout(function () {
+		console.log('setTimeout');
+		Promise.resolve().then(function () {
+			console.log('promise3');
+		}).then(function () {
+			console.log('promise4');
+		});
+	}, 0);
+
+	Promise.resolve().then(function () {
+		console.log('promise1');
+	}).then(function () {
+		console.log('promise2');
 	});
-
-	function enterKeyDown() {
-		if (event.keyCode == 13) {
-			$('button').click();
-		}
-	}
-	// 这个是为什么了?
-	// 为什么会是这个样子了?
-
-	// 两数相加方法
-	function add(a, b) {
-		return a + b;	
-	}
-
-	// 两数相减
-	function jian(a, b) {
-		return a - b;
-	}
-	function test() {
-		console.log('好好学习 天天向上')
-	}
-
+	console.log('script end');
 </script>
 
 </html>
