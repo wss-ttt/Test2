@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button>1</button>
+  <button>2</button>
+  <button>3</button>
+  <button>4</button>
+  <button>5</button>
+  <script>
+    var makeCounter = function () {
+      var privateCounter = 0;
+
+      function changeBy(val) {
+        privateCounter += val;
+      }
+      return {
+        increment: function () {
+          changeBy(1);
+        },
+        decrement: function () {
+          changeBy(-1);
+        },
+        value: function () {
+          return privateCounter;
+        }
+      }
+    };
+
+    //  创建多个计数器,每一个计数器都有自己的词法环境
+    var counter1 = makeCounter();
+    var counter2 = makeCounter();
+    console.log(counter1.value()); // 0
+    counter1.increment();
+    counter1.increment();
+    console.log(counter1.value()); // 2
+    counter1.decrement();
+    console.log(counter1.value()); // 1
+    console.log(counter2.value()); // 0
+  </script>
+</body>
+
+</html>

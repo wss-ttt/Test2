@@ -37,14 +37,15 @@
       }
     }
     let f = fn();
+
     let a = f();
     let b = f();
-    console.log(a); // {name: '乔峰'}
-    console.log(b); // 
+    let c = f();
     a.name = 'aa';
-    console.log(a);
-    console.log(b);
-    console.log(a === b);
+    console.log(a); // {name: 'aa'}
+    console.log(b); // {name: 'aa'}
+    console.log(a === b); // true
+    console.log(b === c)
   </script>
 </body>
 
