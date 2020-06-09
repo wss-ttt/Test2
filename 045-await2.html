@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    // async 会将其后的函数（函数表达式或 Lambda）的返回值封装成一个 Promise 对象，而 await 会等待这个 Promise 完成，并将其 resolve 的结果返回出来
+
+    /* function takeLongTime() {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve("long_time_value")
+        }, 1000);
+      });
+    }
+    takeLongTime().then((data) => {
+      console.log('这个会执行吗?', data)
+    }) */
+
+
+    function takeLongTime() {
+      return new Promise((resolve, reject) => {
+        setTimeout(() => {
+          resolve("long_time_value")
+        }, 1000);
+      });
+    }
+
+    async function test() {
+      const v = await takeLongTime();
+      console.log(v);
+    }
+
+    test();
+  </script>
+</body>
+
+</html>
